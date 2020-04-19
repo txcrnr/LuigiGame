@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/StageMap2.png-f03e0624020a54433f333c871a593b53.s3tc.stex"
-path.etc2="res://.import/StageMap2.png-f03e0624020a54433f333c871a593b53.etc2.stex"
+path.s3tc="res://.import/CurtainTop.png-3833df35aedd78b261a10ab96e56d6a1.s3tc.stex"
+path.etc2="res://.import/CurtainTop.png-3833df35aedd78b261a10ab96e56d6a1.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://StageMap2.png"
-dest_files=[ "res://.import/StageMap2.png-f03e0624020a54433f333c871a593b53.s3tc.stex", "res://.import/StageMap2.png-f03e0624020a54433f333c871a593b53.etc2.stex" ]
+source_file="res://Stage/CurtainTop.png"
+dest_files=[ "res://.import/CurtainTop.png-3833df35aedd78b261a10ab96e56d6a1.s3tc.stex", "res://.import/CurtainTop.png-3833df35aedd78b261a10ab96e56d6a1.etc2.stex" ]
 
 [params]
 
@@ -28,7 +28,7 @@ flags/anisotropic=false
 flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
-process/HDR_as_SRGB=false
+process/HDR_as_SRGB=true
 process/invert_color=false
 stream=false
 size_limit=0

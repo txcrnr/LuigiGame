@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stage_bottom.png-6184c7328c10f3140eba72c9f646bafc.stex"
+path="res://.import/Curtain.png-839e31a16792b9aea846f7bdd4159a9a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stage_bottom.png"
-dest_files=[ "res://.import/stage_bottom.png-6184c7328c10f3140eba72c9f646bafc.stex" ]
+source_file="res://Stage/Curtain.png"
+dest_files=[ "res://.import/Curtain.png-839e31a16792b9aea846f7bdd4159a9a.stex" ]
 
 [params]
 

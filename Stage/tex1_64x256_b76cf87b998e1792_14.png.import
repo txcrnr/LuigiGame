@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LuigiSprites.png-80196041760a8b3197245867ae5cd52a.stex"
+path="res://.import/tex1_64x256_b76cf87b998e1792_14.png-e9cf20d43975f17179985dfa2430ec6a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LuigiSprites.png"
-dest_files=[ "res://.import/LuigiSprites.png-80196041760a8b3197245867ae5cd52a.stex" ]
+source_file="res://Stage/tex1_64x256_b76cf87b998e1792_14.png"
+dest_files=[ "res://.import/tex1_64x256_b76cf87b998e1792_14.png-e9cf20d43975f17179985dfa2430ec6a.stex" ]
 
 [params]
 

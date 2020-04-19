@@ -1,0 +1,279 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Stage/Stage.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://Luigi/LuigiSprites.png" type="Texture" id=2]
+[ext_resource path="res://Stage/StageMap2.png" type="Texture" id=3]
+[ext_resource path="res://Stage/CurtainTop.png" type="Texture" id=4]
+[ext_resource path="res://Stage/CurtainSide.png" type="Texture" id=5]
+[ext_resource path="res://Stage/tex1_64x256_b76cf87b998e1792_14.png" type="Texture" id=6]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="World" id=5]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Node2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var animPlayer = get_node(\"AnimationPlayer\") # Get Luigi's animation player
+	animPlayer.current_animation = \"Walk\"
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="Animation" id=6]
+resource_name = "Idle"
+length = 3.0
+loop = true
+step = 0.05
+
+[sub_resource type="Animation" id=7]
+resource_name = "Walk"
+length = 0.5
+loop = true
+step = 0.05
+
+[sub_resource type="ViewportTexture" id=8]
+viewport_path = NodePath("Viewport")
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Stage" type="MeshInstance" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 0.7, 0, 8.74228e-08, 0, -1, -5, -0.711, 1.809 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 4 )
+
+[node name="Stage2" type="MeshInstance" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 0.7, 0, 8.74228e-08, 0, -1, 5, -0.711, 1.809 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 4 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 185, 310 )
+world = SubResource( 5 )
+transparent_bg = true
+hdr = false
+disable_3d = true
+usage = 0
+render_target_v_flip = true
+
+[node name="LuigiSprite" type="Node2D" parent="Viewport"]
+position = Vector2( 90.0119, 204.042 )
+script = SubResource( 3 )
+
+[node name="Torso" type="Sprite" parent="Viewport/LuigiSprite"]
+position = Vector2( -3.1555, -5.71753 )
+z_index = 1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 7, 251, 84, 100 )
+
+[node name="Head" type="Sprite" parent="Viewport/LuigiSprite/Torso"]
+position = Vector2( -2.60474, -50.3512 )
+z_as_relative = false
+texture = ExtResource( 2 )
+offset = Vector2( 1.68555, -40.009 )
+region_enabled = true
+region_rect = Rect2( 5, 114, 90, 123 )
+
+[node name="Mouth" type="Sprite" parent="Viewport/LuigiSprite/Torso/Head"]
+visible = false
+position = Vector2( -19.5481, 17.1046 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 279, 178, 26, 28 )
+
+[node name="Hair" type="Sprite" parent="Viewport/LuigiSprite/Torso/Head"]
+position = Vector2( 22.6477, -27.5495 )
+rotation = -0.508634
+z_index = -1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 205, 116, 29, 47 )
+
+[node name="Ear" type="Sprite" parent="Viewport/LuigiSprite/Torso/Head"]
+position = Vector2( 45.8924, -41.7426 )
+rotation = -0.0712126
+z_index = 1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 301, 119, 36, 43 )
+
+[node name="Nose" type="Sprite" parent="Viewport/LuigiSprite/Torso/Head"]
+position = Vector2( -42.2882, -44.3826 )
+rotation = -0.0712126
+z_index = 2
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 245, 120, 47, 42 )
+
+[node name="LeftEye" type="Sprite" parent="Viewport/LuigiSprite/Torso/Head"]
+position = Vector2( -29.9104, -65.508 )
+z_index = 1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 347, 115, 11, 23 )
+
+[node name="RightEye" type="Sprite" parent="Viewport/LuigiSprite/Torso/Head/LeftEye"]
+position = Vector2( 21.5945, 1.14761 )
+z_index = 1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 347, 115, 11, 23 )
+
+[node name="Moustache" type="Sprite" parent="Viewport/LuigiSprite/Torso/Head"]
+position = Vector2( -19.4044, -25.3521 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 207, 177, 64, 30 )
+
+[node name="Hat" type="Sprite" parent="Viewport/LuigiSprite/Torso/Head"]
+position = Vector2( 43.5762, -75.4073 )
+rotation = 0.0498948
+texture = ExtResource( 2 )
+offset = Vector2( -45.4101, -23.0194 )
+region_enabled = true
+region_rect = Rect2( 4, 4, 134, 96 )
+
+[node name="Shadow" type="Sprite" parent="Viewport/LuigiSprite/Torso/Head/Hat"]
+position = Vector2( -70.8155, -7.74407 )
+rotation = -0.0386617
+z_index = -1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 147, 3, 66, 24 )
+
+[node name="HatL" type="Sprite" parent="Viewport/LuigiSprite/Torso/Head/Hat"]
+position = Vector2( -58.9438, -37.7726 )
+rotation = 0.170742
+scale = Vector2( -1, 1 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 147, 34, 20, 22 )
+
+[node name="LeftArm" type="Sprite" parent="Viewport/LuigiSprite/Torso"]
+position = Vector2( 18.0894, -33.5179 )
+rotation = 0.383972
+z_index = 1
+texture = ExtResource( 2 )
+offset = Vector2( 0.909714, 28.665 )
+region_enabled = true
+region_rect = Rect2( 6, 363, 34, 78 )
+
+[node name="LeftHand" type="Sprite" parent="Viewport/LuigiSprite/Torso/LeftArm"]
+position = Vector2( 4.49321, 37.0862 )
+rotation = 0.41845
+z_index = 2
+texture = ExtResource( 2 )
+offset = Vector2( -1.39117, 19.46 )
+region_enabled = true
+region_rect = Rect2( 102, 372, 60, 59 )
+
+[node name="RightArm" type="Sprite" parent="Viewport/LuigiSprite/Torso"]
+position = Vector2( -14.0143, -38.0439 )
+rotation = -0.32029
+z_index = -2
+texture = ExtResource( 2 )
+offset = Vector2( 2.12797, 34.0087 )
+region_enabled = true
+region_rect = Rect2( 6, 363, 34, 78 )
+
+[node name="RightHand" type="Sprite" parent="Viewport/LuigiSprite/Torso/RightArm"]
+position = Vector2( 5.44275, 36.6774 )
+rotation = -0.423333
+scale = Vector2( 1.00111, 1.01189 )
+texture = ExtResource( 2 )
+offset = Vector2( -4.01068, 14.7429 )
+region_enabled = true
+region_rect = Rect2( 116, 484, 60, 60 )
+
+[node name="LeftFoot" type="Sprite" parent="Viewport/LuigiSprite"]
+position = Vector2( 0.685271, 24.4588 )
+rotation = 0.661083
+z_index = 1
+texture = ExtResource( 2 )
+offset = Vector2( -12.8477, 41.6339 )
+region_enabled = true
+region_rect = Rect2( 4, 571, 64, 46 )
+
+[node name="RightFoot" type="Sprite" parent="Viewport/LuigiSprite"]
+position = Vector2( 14.1551, 17.3496 )
+rotation = -0.863749
+z_index = -1
+texture = ExtResource( 2 )
+offset = Vector2( -14.8751, 43.0111 )
+region_enabled = true
+region_rect = Rect2( 5, 630, 64, 46 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Viewport/LuigiSprite"]
+anims/Idle = SubResource( 6 )
+anims/Walk = SubResource( 7 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.987518, 0.157503, 0, -0.157503, 0.987518, 0, 1.108, 9.57595 )
+
+[node name="Luigi" type="Sprite3D" parent="."]
+transform = Transform( 0.5, -8.84149e-08, 2.38419e-07, 8.84149e-08, 0.5, 0, -1.19209e-07, 2.10798e-14, 1, -3.93761, 0.705087, 2.40301 )
+flip_h = true
+texture = SubResource( 8 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 32, 320 )
+scale = Vector2( 1, 3 )
+texture = ExtResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 992, 320 )
+scale = Vector2( 1, 3 )
+texture = ExtResource( 6 )
+
+[node name="CurtainLeft" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.31239, 1.68152, 0.780347 )
+alpha_cut = 1
+texture = ExtResource( 5 )
+
+[node name="CurtainRight" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.62377, 1.68152, 0.780347 )
+flip_h = true
+alpha_cut = 1
+texture = ExtResource( 5 )
+
+[node name="CurtainTop" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.845, 0.933339 )
+alpha_cut = 1
+texture = ExtResource( 4 )
+
+[node name="CurtainTop2" type="Sprite3D" parent="CurtainTop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -0.00999999 )
+alpha_cut = 1
+texture = ExtResource( 4 )
+
+[node name="CurtainTop4" type="Sprite3D" parent="CurtainTop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -0.02 )
+alpha_cut = 1
+texture = ExtResource( 4 )
+
+[node name="CurtainTop3" type="Sprite3D" parent="CurtainTop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -0.01 )
+alpha_cut = 1
+texture = ExtResource( 4 )
+
+[node name="CurtainTop5" type="Sprite3D" parent="CurtainTop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -0.02 )
+alpha_cut = 1
+texture = ExtResource( 4 )

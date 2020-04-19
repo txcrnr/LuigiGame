@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Luigi/LuigiSprite.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Stage/Stage.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Stage/tex1_64x256_b76cf87b998e1792_14.png" type="Texture" id=3]
+[ext_resource path="res://Stage/CurtainTop.png" type="Texture" id=4]
+[ext_resource path="res://Stage/CurtainSide.png" type="Texture" id=5]
+[ext_resource path="res://Stage/StageMap2.png" type="Texture" id=6]
+
+[sub_resource type="SpatialMaterial" id=11]
+albedo_texture = ExtResource( 6 )
+
+[sub_resource type="World" id=2]
+
+[sub_resource type="ViewportTexture" id=12]
+viewport_path = NodePath("LuigiNode/Viewport")
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Stage" type="MeshInstance" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 0.7, 0, 8.74228e-08, 0, -1, -5, -0.711, 1.809 )
+mesh = ExtResource( 2 )
+material/0 = SubResource( 11 )
+
+[node name="Stage2" type="MeshInstance" parent="Stage"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -9.53674e-07 )
+mesh = ExtResource( 2 )
+material/0 = SubResource( 11 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.987518, 0.157503, 0, -0.157503, 0.987518, 0, 1.108, 9.57595 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="Sprite" type="Sprite" parent="HUD"]
+position = Vector2( 32, 320 )
+scale = Vector2( 1, 3 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="HUD"]
+position = Vector2( 992, 320 )
+scale = Vector2( 1, 3 )
+texture = ExtResource( 3 )
+
+[node name="CurtainTop" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.845, 0.933339 )
+alpha_cut = 1
+texture = ExtResource( 4 )
+
+[node name="CurtainRight" type="Sprite3D" parent="CurtainTop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.62377, -3.16348, -0.152992 )
+flip_h = true
+alpha_cut = 1
+texture = ExtResource( 5 )
+
+[node name="CurtainLeft" type="Sprite3D" parent="CurtainTop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.31239, -3.16348, -0.152992 )
+alpha_cut = 1
+texture = ExtResource( 5 )
+
+[node name="CurtainTop2" type="Sprite3D" parent="CurtainTop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -0.00999999 )
+alpha_cut = 1
+texture = ExtResource( 4 )
+
+[node name="CurtainTop4" type="Sprite3D" parent="CurtainTop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -0.02 )
+alpha_cut = 1
+texture = ExtResource( 4 )
+
+[node name="CurtainTop3" type="Sprite3D" parent="CurtainTop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -0.01 )
+alpha_cut = 1
+texture = ExtResource( 4 )
+
+[node name="CurtainTop5" type="Sprite3D" parent="CurtainTop"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -0.02 )
+alpha_cut = 1
+texture = ExtResource( 4 )
+
+[node name="LuigiNode" type="Spatial" parent="."]
+
+[node name="Viewport" type="Viewport" parent="LuigiNode"]
+size = Vector2( 480, 480 )
+world = SubResource( 2 )
+transparent_bg = true
+hdr = false
+disable_3d = true
+usage = 0
+render_target_v_flip = true
+
+[node name="LuigiSprite" parent="LuigiNode/Viewport" instance=ExtResource( 1 )]
+
+[node name="Luigi" type="Sprite3D" parent="LuigiNode"]
+transform = Transform( 0.5, -8.84149e-08, 2.38419e-07, 8.84149e-08, 0.5, 0, -1.19209e-07, 2.10798e-14, 1, -3.938, 1.2, 2.403 )
+flip_h = true
+texture = SubResource( 12 )
